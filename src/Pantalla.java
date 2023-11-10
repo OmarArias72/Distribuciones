@@ -24,12 +24,13 @@ public class Pantalla {
     private JFrame ventana1;
     private JLabel etiqueta1;
     private JButton variableDiscreta;
-    private JButton variableContinua;
+//    private JButton variableContinua;
     private JButton distribucionBinomial;
     private JButton distribucionHiperGeometrica;
     private JButton distribucionPoisson;
     private JButton volverMenu;
     private DistribucionBinomialGUI pantalla2;
+    private DistribucionHipergeometricaGUI pantalla3;
 
     public Pantalla() {
         ventana1 = new JFrame("Calculadora Distribuciones");
@@ -49,12 +50,12 @@ public class Pantalla {
 
         // Iniciar los botones
         variableDiscreta = new JButton("Variable Discreta");
-        variableContinua = new JButton("Variable Continua");
+//        variableContinua = new JButton("Variable Continua");
         volverMenu = new JButton("Regresar Inicio");
 
         // Agregar los botones al panel
         buttonPanel.add(variableDiscreta);
-        buttonPanel.add(variableContinua);
+//        buttonPanel.add(variableContinua);
         buttonPanel.add(volverMenu);
         distribucionBinomial = new JButton("Distribucion Binomial");
         distribucionHiperGeometrica = new JButton("Distribucion Hipergeometrica");
@@ -72,7 +73,7 @@ public class Pantalla {
                     buttonPanel.remove(distribucionPoisson);
                     // Establece los botones de Variable Discreta y Variable Continua nuevamente
                     buttonPanel.add(variableDiscreta);
-                    buttonPanel.add(variableContinua);
+//                    buttonPanel.add(variableContinua);
                     // Refresca el panel
                     buttonPanel.revalidate();
                     buttonPanel.repaint();
@@ -85,7 +86,7 @@ public class Pantalla {
             public void actionPerformed(ActionEvent e) {
                 // Elimina los botones previos si existen
                 buttonPanel.remove(variableDiscreta);
-                buttonPanel.remove(variableContinua);
+//                buttonPanel.remove(variableContinua);
 //                buttonPanel.remove(distribucionPoisson);
 
                 // Crea los nuevos botones
@@ -104,8 +105,17 @@ public class Pantalla {
         distribucionBinomial.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+//                ventana1.dispose();
                 pantalla2 = new DistribucionBinomialGUI();
             }
+        });
+        
+        distribucionHiperGeometrica.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pantalla3 = new DistribucionHipergeometricaGUI();
+            }
+            
         });
 
         ventana1.setVisible(true);

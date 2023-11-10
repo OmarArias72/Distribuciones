@@ -42,7 +42,7 @@ public class DistribucionBinomialGUI {
 
         numeroEnsayos = new JLabel("Número de ensayos (n):");
         probabilidadExtito = new JLabel("Probabilidad de éxito (p):");
-        probabilidadVariableAleatoria = new JLabel("Variable aleatoria (k):");
+        probabilidadVariableAleatoria = new JLabel("Variable aleatoria (x):");
 
         numeroEntero = new JTextField(10);
         probabilidad = new JTextField(10);
@@ -80,7 +80,8 @@ public class DistribucionBinomialGUI {
                 op1.p=NumberP;
                 op1.entrada2(variableAleatoriaRango);
                 op1.mandarDatosAMetodoCalculo();
-                op1.salida();
+                resultado.append(String.format("El resultado es: %.5f", op1.resultadoBinomial));
+//                op1.salida();
                 
                 
                 
