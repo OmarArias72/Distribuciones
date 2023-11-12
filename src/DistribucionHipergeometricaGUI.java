@@ -101,7 +101,7 @@ public class DistribucionHipergeometricaGUI {
                int n=Integer.parseInt(valorn);
                op2.n=n;
                
-               op2.entrada2(valorVariableAleatoria);
+               op2.Entrada(valorVariableAleatoria);
                op2.mandarDatosAMetodoCalculo();
                op2.Salida();
                

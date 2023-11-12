@@ -31,6 +31,7 @@ public class Pantalla {
     private JButton volverMenu;
     private DistribucionBinomialGUI pantalla2;
     private DistribucionHipergeometricaGUI pantalla3;
+    private DistribucionPoissonGUI pantalla4;
 
     public Pantalla() {
         ventana1 = new JFrame("Calculadora Distribuciones");
@@ -114,6 +115,13 @@ public class Pantalla {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pantalla3 = new DistribucionHipergeometricaGUI();
+            }
+            
+        });
+        distribucionPoisson.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pantalla4 = new DistribucionPoissonGUI();
             }
             
         });

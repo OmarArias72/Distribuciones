@@ -1,7 +1,3 @@
-
-import java.math.BigInteger;
-import java.util.Scanner;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -11,18 +7,8 @@ import java.util.Scanner;
  *
  * @author omara
  */
-public class DistribucionPoisson {
-    double mediaN;
-    double p;
-    int [] probabilidadVariableAleatoria;
-    double resultadoPoisson=0;
-    
-    public void EntradaPoisson(){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Media: ");
-        mediaN=input.nextDouble();
-    }
-    
+public class Entrada {
+   int [] probabilidadVariableAleatoria;
     
     
     public void Entrada(String variableAleatoriaRango){
@@ -118,41 +104,21 @@ public class DistribucionPoisson {
     }
     
     
-    public void mediaEntrada(String n){
-        mediaN=Double.parseDouble(n);
+
+    public void salida(){
         
-    }
-    
-    public void mandarDatosAMetodoCalculo(){
-        int numeroTemporal;
-        double exponencialNegativo=1/Math.exp(mediaN);
-        BigInteger factorialX;
-        for(int i=0;i<probabilidadVariableAleatoria.length;i++){
-            numeroTemporal=probabilidadVariableAleatoria[i];
-            System.out.println(numeroTemporal);
-            factorialX=Factorial(numeroTemporal);
-            resultadoPoisson +=exponencialNegativo*((Math.pow(mediaN,numeroTemporal)/factorialX.doubleValue()));
-            
-        }
-    }
-    public BigInteger Factorial(int x){
-        BigInteger resultado=BigInteger.ONE;
-        if(x==0){
-            return resultado;
-        }else{
-            for(int i=1;i<=x;i++){
-                resultado=resultado.multiply(BigInteger.valueOf(i));
+        if(probabilidadVariableAleatoria.length==0){
+            System.out.println("No ingreso un valor de la variable aleatoria");
+        }else if(probabilidadVariableAleatoria.length>0){
+            System.out.print("Probabilidad aleatoria: ");
+            for(int i=0;i<probabilidadVariableAleatoria.length;i++){
+                System.out.print(probabilidadVariableAleatoria[i]+ " ");
             }
-            return resultado;
+        } else if(probabilidadVariableAleatoria==null){
+            System.out.println("No existe");
         }
-    }
-    
-    public void Salida(){
-        System.out.println("El resultado es: "+resultadoPoisson);
-    }
-    
-    public void CalcularN(){
         
     }
+
     
 }

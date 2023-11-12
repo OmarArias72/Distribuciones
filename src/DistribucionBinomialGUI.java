@@ -78,7 +78,7 @@ public class DistribucionBinomialGUI {
                 op1.n=NumberN;
                 double NumberP=Double.parseDouble(tempEnsayos);
                 op1.p=NumberP;
-                op1.entrada2(variableAleatoriaRango);
+                op1.Entrada(variableAleatoriaRango);
                 op1.mandarDatosAMetodoCalculo();
                 resultado.append(String.format("El resultado es: %.5f", op1.resultadoBinomial));
 //                op1.salida();

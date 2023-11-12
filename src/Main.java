@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @author omara
  */
 public class Main {
+
     public static void main(String[] args) {
 //        DistribucionBinomial operacion1 = new DistribucionBinomial();
 //        operacion1.entrada();
@@ -20,15 +21,21 @@ public class Main {
 //          operacion2.entrada();
 //          operacion2.mandarDatosAMetodoCalculo();
 //          operacion2.Salida();
-        
+
           Pantalla obj1 = new Pantalla();
 //          DistribucionPoisson op3 = new DistribucionPoisson();
 //          op3.EntradaPoisson();
 //          Scanner input = new Scanner(System.in);
 //          System.out.print("Variable aletoria; ");
 //          String valor=input.nextLine();
-//          op3.entrada2(valor);
+//          op3.Entrada(valor);
 //          op3.mandarDatosAMetodoCalculo();
 //          op3.Salida();
+//        Entrada comprobacion = new Entrada();
+//        Scanner input = new Scanner(System.in);
+//        String valor = input.nextLine();
+//        comprobacion.Entrada(valor);
+//        comprobacion.salida();
+
     }
 }
