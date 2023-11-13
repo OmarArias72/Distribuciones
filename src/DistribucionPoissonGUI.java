@@ -29,6 +29,7 @@ public class DistribucionPoissonGUI {
     private JTextField vAleatoriaValor;
     private JTextArea resultado;
     
+    
     public DistribucionPoissonGUI(){
         ventanaPoisson = new JFrame("Distribucion Poisson");
         ventanaPoisson.setSize(450, 350);
@@ -69,6 +70,13 @@ public class DistribucionPoissonGUI {
         calcular.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                String datoNp =medNPDatos.getText();
+                String variableAleatoria=vAleatoriaValor.getText();
+                DistribucionPoisson op3= new DistribucionPoisson();
+                op3.Entrada(variableAleatoria);
+                op3.mediaEntrada(datoNp);
+                op3.mandarDatosAMetodoCalculo();
+                resultado.append(String.format("El resultado es: %.6f", op3.resultadoPoisson));
                 
             }
             

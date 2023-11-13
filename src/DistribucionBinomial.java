@@ -1,4 +1,5 @@
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /*
@@ -177,38 +178,46 @@ public class DistribucionBinomial {
     
     
     public void calcularDistribucion(int a){
-        int nFacto=1;
-        int x1Facto=1;
-        int xFacto=1;
-        double resultFacto;
+//        int nFacto=1;
+//        int x1Facto=1;
+//        int xFacto=1;
+//        double resultFacto;
         double probabilidadExito2;
         //Calculo de Factorial de la variable n!
-        for (int i = 1; i <= n; i++) {
-                nFacto *= i;
-            }
+//        for (int i = 1; i <= n; i++) {
+//                nFacto *= i;
+//            }
         
-        
+        BigInteger nFacto=Factorial(n);
         
         //Calculo de Factorial de la variable aleatoria (n-X)!
-        for(int i=1;i<=n-a;i++){
-            x1Facto *=i;
-        }
+//        for(int i=1;i<=n-a;i++){
+//            x1Facto *=i;
+//        }
+        
+        BigInteger x1Facto=Factorial(n-a);
         //Calculo de Factorial de la variable aleatoria X!
-        if (a == 0) {
-            xFacto = 1;
-        } else {
-            for (int i = 1; i <= a; i++) {
-                xFacto *= i;
-            }
-        }
+        BigInteger XFacto=Factorial(a);
+        
+//        if (a == 0) {
+//            xFacto = 1;
+//        } else {
+//            for (int i = 1; i <= a; i++) {
+//                xFacto *= i;
+//            }
+//        }
         
         //calculo de (n!)/X!(n-X)!
-        resultFacto=nFacto/(xFacto*x1Facto);
+        BigInteger X2Facto = XFacto.multiply(x1Facto);
+        BigInteger X3Facto = nFacto.divide(X2Facto);
+//        resultFacto=nFacto/(xFacto*x1Facto);
         
         //calculo de (1-p)^n-x
         probabilidadExito2=Math.pow(1-p,n-a);
         //operacion final
-        resultadoBinomial +=resultFacto*probabilidadExito2*(Math.pow(p,a));
+//        resultadoBinomial +=resultFacto*probabilidadExito2*(Math.pow(p,a));
+        
+        resultadoBinomial +=X3Facto.doubleValue()*probabilidadExito2*(Math.pow(p,a));
         
     }
     public void mandarDatosAMetodoCalculo(){
@@ -218,7 +227,17 @@ public class DistribucionBinomial {
             calcularDistribucion(numeroTemporal);
         }
     }
-    
+    public BigInteger Factorial(int x){
+        BigInteger resultado=BigInteger.ONE;
+        if(x==0){
+            return resultado;
+        }else{
+            for(int i=1;i<=x;i++){
+                resultado=resultado.multiply(BigInteger.valueOf(i));
+            }
+            return resultado;
+        }
+    }
     public void salida(){
         System.out.println("Numero de ensayos: "+n);
         System.out.println("Probabilidad de p: "+p);
